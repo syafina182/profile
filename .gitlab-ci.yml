@@ -6,8 +6,8 @@ stages:
 
 # Variables
 variables:
-  POSTGRES_DB: asmos
-  POSTGRES_USER: homestead
+  POSTGRES_DB: profile
+  POSTGRES_USER: user
   POSTGRES_PASSWORD: secret
   DB_HOST: postgres
 
