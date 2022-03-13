@@ -1,0 +1,294 @@
+@charset "UTF-8";
+
+#dashboard {
+  width: 100%;
+  height: 300vh;
+  background: linear-gradient(to Left bottom, #191919, #201055);
+  font-family: Poppins, sans-serif;
+}
+
+@media (min-width: 576px) {
+  #dashboard {
+    width: 100%;
+    height: 160vh;
+    background: linear-gradient(to Left bottom, #191919, #201055);
+    font-family: Poppins, sans-serif;
+  }
+}
+
+@media (min-width: 768px) {
+  #dashboard {
+    width: 100%;
+    height: 180vh;
+    background: linear-gradient(to Left bottom, #191919, #201055);
+    font-family: Poppins, sans-serif;
+  }
+}
+
+@media (min-width: 992px) {
+  #dashboard {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to Left bottom, #191919, #201055);
+    font-family: Poppins, sans-serif;
+  }
+}
+
+.navbar {
+  position: relative;
+  background: linear-gradient(to right, #4c4c4c, #252525);
+  vlinear-gradient(to right, red , yellow);: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+}
+
+.logo {
+  width: 100%;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+  color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(255,255,255,0.5);
+}
+
+.nav-item {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.footer {
+	position: sticky;
+	left: 0;
+  bottom: 0;
+  flex-shrink: 0;
+  margin-bottom: 0px;
+  width: 100%;
+  height: 35px;
+  background: linear-gradient(to right, #4c4c4c, #252525);
+}
+
+#icon {
+  font-size: 68px;
+}
+
+.row.menu {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+
+nav.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#app {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 35px;    /* Footer height */
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  /*background-color: #ff0000;*/
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 992px) {
+  .eicon {
+    margin-right: 17px;
+    width: 29%;
+    height: 29%;
+  }
+}
+
+.eicon {
+  margin-right: 17px;
+  width: 35%;
+  height: 35%;
+}
+
+.text-warning.status {
+  font-size: 10px;
+}
+
+#system_name {
+  margin-right: 15px;
+}
+
+.fa.fa-stop.condition {
+  margin-right: 20px;
+  color: rgb(220,53,69);
+}
+
+.condition_color {
+  height: 14px;
+  width: 251px;
+}
+
+.hgroup {
+  margin-right: 50px;
+}
+
+.fa.fa-stop.condition_warning {
+  color: rgb(255,193,7);
+  margin-right: 20px;
+}
+
+.fa.fa-stop.condition_good {
+  margin-right: 20px;
+  color: rgb(40,167,69);
+}
+
+.container.menu {
+  margin-top: 70px;
+}
+
+#login {
+  /* background: linear-gradient(to Left bottom, #191919, #201055); */
+  background-image: url('img/backend/brand/programming.jpg');
+  width: 100%;
+  height: 100vh;
+}
+
+#logo_asmos {
+  margin: 50px;
+  margin-top: 86px;
+  width: 329px;
+  margin-bottom: 0px;
+}
+
+@media (min-width: 300px) {
+  #logo_asmos {
+    margin: 50px;
+    margin-top: 86px;
+    width: 235px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  #logo_asmos {
+    margin: 50px;
+    margin-top: 86px;
+    width: 270px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 992px) {
+  #logo_asmos {
+    margin: 50px;
+    margin-top: 86px;
+    width: 329px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #logo_asmos {
+    margin: 50px;
+    margin-top: 86px;
+    width: 329px;
+    margin-bottom: 0px;
+  }
+}
+
+#login_img {
+  margin-bottom: 0;
+  width: 436px;
+  margin-top: -60px;
+}
+
+.login_white_bg {
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+#jata {
+  width: 140px;
+  margin-top: 75px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-check {
+  margin-bottom: 15px;
+}
+
+.form-group.text-left {
+  margin: 145px;
+  margin-top: 35px;
+}
+
+@media (min-width: 300px) {
+  .form-group.text-left {
+    margin: 30px;
+    margin-top: 35px;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-group.text-left {
+    margin: 50px;
+    margin-top: 35px;
+  }
+}
+
+@media (min-width: 992px) {
+  .form-group.text-left {
+    margin: 90px;
+    margin-top: 35px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form-group.text-left {
+    margin: 145px;
+    margin-top: 35px;
+  }
+}
+
+.sidebar {
+  background: #F17153 !important;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#3CF6F1, #13B2BD) !important;
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#3CF6F1, #13B2BD) !important;
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#3CF6F1, #13B2BD) !important;
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#3CF6F1, #09a4af) !important;
+  /* Standard syntax */
+}

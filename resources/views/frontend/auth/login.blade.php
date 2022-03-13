@@ -3,95 +3,67 @@
 @section('title', app_name() . ' | ' . __('labels.frontend.auth.login_box_title'))
 
 @section('content')
-    <div class="row justify-content-center align-items-center">
-        <div class="col col-sm-8 align-self-center">
-            <div class="card">
-                <div class="card-header">
-                    <strong>
-                        @lang('labels.frontend.auth.login_box_title')
-                    </strong>
-                </div><!--card-header-->
+<section id="login" style="background-image: url('img/backend/brand/developer.jpg');">
+    <div class="container-fluid" style="width: 100%;height: 100vh;padding: 0;">
+        <div class="row" style="height: 100vh;margin-right: 0;margin-left: 0;">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-6" style="padding: 0;padding-right: 0;">
+                <div class="text-center login_white_bg" >
+                    <div class="card-body">
+                        @include('includes.partials.messages')
+                        <h4 style="margin-top: 20%; font-size: 60px;">PROGRAMMING</h4>
+                        {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
+                            <div class="form-group text-left">
+                                <label style="font-weight: bold;letter-spacing: 2px; margin-top:5%">USERNAME</label>
+                                {{ html()->email('email')
+                                    ->class('form-control')
+                                    ->attribute('maxlength', 191)
+                                    ->required() }}
 
-                <div class="card-body">
-                    {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
+                                <label style="font-weight: bold;letter-spacing: 2px;">PASSWORD</label>
 
-                                    {{ html()->email('email')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
+                                {{ html()->password('password')
+                                    ->class('form-control')
+                                    ->required() }}
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
 
-                                    {{ html()->password('password')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password'))
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        {{ html()->label(html()->checkbox('remember', true, 1) . ' ' . __('labels.frontend.auth.remember_me'))->for('remember') }}
-                                    </div>
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group clearfix">
-                                    {{ form_submit(__('labels.frontend.auth.login_button')) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        @if(config('access.captcha.login'))
-                            <div class="row">
-                                <div class="col">
-                                    @captcha
-                                    {{ html()->hidden('captcha_status', 'true') }}
-                                </div><!--col-->
-                            </div><!--row-->
-                        @endif
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group text-right">
-                                    <a href="{{ route('frontend.auth.password.reset') }}">@lang('labels.frontend.passwords.forgot_password')</a>
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-                    {{ html()->form()->close() }}
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="text-center">
-                                @include('frontend.auth.includes.socialite')
+                            <div class="col-14">
+                                <button class="btn btn-warning w-100" type="submit" style="border-radius:10px">@lang('LOGIN')</button>
                             </div>
-                        </div><!--col-->
-                    </div><!--row-->
-                </div><!--card body-->
-            </div><!--card-->
+                            </div><!--form-group-->
+
+                            @if(config('access.captcha.login'))
+                                <div class="row">
+                                    <div class="col">
+                                        @captcha
+                                        {{ html()->hidden('captcha_status', 'true') }}
+                                    </div><!--col-->
+                                </div><!--row-->
+                            @endif
+
+                        {{ html()->form()->close() }}
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="text-center">
+                                    @include('frontend.auth.includes.socialite')
+                                </div>
+                            </div><!--col-->
+                        </div><!--row-->
+                    </div><!--card body-->
+                </div>
+            </div>
         </div><!-- col-md-8 -->
     </div><!-- row -->
-@endsection
+</section>
 
-@push('after-scripts')
-    @if(config('access.captcha.login'))
-        @captchaScripts
-    @endif
-@endpush
+@endsection
+<style>
+    h4 {
+        font-size: 1500px;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0310af, 0 0 20px #0310af, 0 0 25px #0310af, 0 0 30px #0310af, 0 0 35px #0310af;
+    }
+</style>

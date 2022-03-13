@@ -2,49 +2,43 @@
     <div class="table-responsive">
         <table class="table table-hover">
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.avatar')</th>
-                <td><img src="{{ $user->picture }}" class="user-profile-image" /></td>
+                <th>Profile Picture</th>
+                <td><img src="{{ $user->picture }}" class="user-profile-image" style="width: 120px; height: 100px;"/></td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.name')</th>
+                <th>Name</th>
                 <td>{{ $user->name }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.email')</th>
+                <th>Username</th>
+                <td>{{ $user->username }}</td>
+            </tr>
+
+            <tr>
+                <th>E-mail</th>
                 <td>{{ $user->email }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.status')</th>
-                <td>@include('backend.auth.user.includes.status', ['user' => $user])</td>
+                <th>Mobile Number</th>
+                <td>{{ $user->mobile }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.confirmed')</th>
-                <td>@include('backend.auth.user.includes.confirm', ['user' => $user])</td>
+                <th>Gender</th>
+                <td>{{ $user->gender }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.timezone')</th>
-                <td>{{ $user->timezone }}</td>
+                <th>Occupation</th>
+                <td>{{ $user->occupation }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.last_login_at')</th>
-                <td>
-                    @if($user->last_login_at)
-                        {{ timezone()->convertToLocal($user->last_login_at) }}
-                    @else
-                        N/A
-                    @endif
-                </td>
-            </tr>
-
-            <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.last_login_ip')</th>
-                <td>{{ $user->last_login_ip ?? 'N/A' }}</td>
+                <th>Address</th>
+                <td>{{ $user->address }}</td>
             </tr>
         </table>
     </div>

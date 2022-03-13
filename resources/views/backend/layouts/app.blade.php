@@ -55,7 +55,6 @@
         <main class="main">
             @include('includes.partials.read-only')
             @include('includes.partials.logged-in-as')
-            {!! Breadcrumbs::render() !!}
 
             <div class="container-fluid">
                 <div class="animated fadeIn">
@@ -81,4 +80,6 @@
     {!! script(mix('js/backend.js')) !!}
     @stack('after-scripts')
 </body>
+@yield('page-js-files')
+@yield('page-js-script')
 </html>

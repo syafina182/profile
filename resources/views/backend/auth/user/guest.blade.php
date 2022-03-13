@@ -7,17 +7,16 @@
 @endsection
 
 @section('content')
-<div class="card" style="margin-top:30px;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);">
+<div class="card" style="margin-top:30px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);">
     <div class="card-body">
-        <div class="row">
+        <div class="row justify-content-center align-items-center">
             <div class="col-sm-5">
                 <h4 class="card-title mb-0">
-                    {{ __('labels.backend.access.users.management') }}
+                    Guest Management
                 </h4>
             </div><!--col-->
 
-            <div class="col-sm-7">
-                    @include('backend.auth.user.includes.header-buttons')
+            <div class="col-sm-7 search">
                     <div class="pull-right" style="float: right; margin-right: 2%;">
                         <div>
                             <input type="text" id="searchServer" class="form-control pull-right"
@@ -39,24 +38,9 @@
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>Gender</th>
-                            <th>Mobile Number</th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>City</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <td></td>
-                                <td>{{ $user->first_name }}</td>
-                                <td>{{ $user->username }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->gender }}</td>
-                                <td>{{ $user->mobile }}</td>
-                                <td class="btn-td">@include('backend.auth.user.includes.actions', ['user' => $user])</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
                     </table>
                 </div>
             </div><!--col-->
@@ -69,10 +53,6 @@
     /* On smaller screens, decrease text size */
     @media only screen and (max-width: 768px) {
         .form-control {
-            margin-top: 30px !important;
-        }
-
-        .ml-1 {
             margin-top: 30px !important;
         }
     }
@@ -90,8 +70,21 @@
 		"pageLength": 25,
         colReorder: true,
 		dom: 'Brtip',
+		"order": [[ 1, "asc" ]],
         responsive: true,
-		"order": [[ 1, "asc" ]]
+        "processing": true,
+        "ajax": {
+                    "url": "https://jsonplaceholder.typicode.com/users",
+                    "type": "GET",
+                    "dataSrc": "",
+                },
+        "columns": [
+            { "defaultContent": "" },
+            { "data": "name" },
+            { "data": "username" },
+            { "data": "email" },
+            { "data": "address.city" },
+        ]
     });
 	$('#searchServer').keyup(function () {
 		tableServer
@@ -107,20 +100,5 @@
             });
         }).draw();
 	});
-
-    function padam(id) {
-            Swal.fire({
-                title: 'Are you sure want to delete this user?',
-                showCancelButton: true,
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'No',
-                reverseButtons: true,
-                icon: 'warning'
-            }).then((result) => {
-                if (result.value) {
-                    window.location="/profile/public/admin/auth/user/delete/" + id;
-                }
-            });
-        }
 </script>
 @stop

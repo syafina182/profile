@@ -11,6 +11,7 @@ use App\Models\Auth\User;
 use App\Repositories\Backend\Auth\PermissionRepository;
 use App\Repositories\Backend\Auth\RoleRepository;
 use App\Repositories\Backend\Auth\UserRepository;
+use Illuminate\Http\UploadedFile;
 
 /**
  * Class UserController.
@@ -65,21 +66,29 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $this->userRepository->create(
-            $request->only(
-                'first_name',
-                'last_name',
-                'email',
-                'password',
-                'active',
-                'confirmed',
-                'confirmation_email',
-                'roles',
-                'permissions'
-            )
-        );
+        if($request->avatar){
+            $file = $request->file('avatar');
+            $name = $file->getClientOriginalName();
+            $file->move(storage_path().'/app/public/avatar/', $name);
+            $pathimg = 'avatar/'.$name;
+        } else {
+            $pathimg = "";
+        }
 
-        return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('alerts.backend.users.created'));
+        User::create([
+            'first_name' => $request->first_name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'occupation' => $request->occupation,
+            'address' => $request->address,
+            'gender' => $request->gender,
+            'avatar_type' => 'storage',
+            'avatar_location' => $pathimg,
+            'password' => 'admin',
+        ]);
+
+        return redirect()->back()->withFlashSuccess(__('alerts.backend.users.created'));
     }
 
     /**
@@ -122,15 +131,26 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $this->userRepository->update(
-            $user, $request->only(
-                'first_name',
-                'last_name',
-                'email',
-                'roles',
-                'permissions'
-            )
-        );
+        if($request->avatar){
+            $file = $request->file('avatar');
+            $name = $file->getClientOriginalName();
+            $file->move(storage_path().'/app/public/avatar/', $name);
+            $pathimg = 'avatar/'.$name;
+        } else {
+            $pathimg = $user->avatar_location;
+        }
+
+        User::where('id', $user->id)->update([
+            'first_name' => $request->first_name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'occupation' => $request->occupation,
+            'address' => $request->address,
+            'gender' => $request->gender,
+            'avatar_type' => 'storage',
+            'avatar_location' => $pathimg,
+        ]);
 
         return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('alerts.backend.users.updated'));
     }
@@ -142,12 +162,20 @@ class UserController extends Controller
      * @throws \Exception
      * @return mixed
      */
-    public function destroy(ManageUserRequest $request, User $user)
+    public function destroy($id)
     {
-        $this->userRepository->deleteById($user->id);
+        User::where('id',$id)->delete();
 
-        event(new UserDeleted($user));
+        return redirect()->back()->withFlashSuccess(__('alerts.backend.users.deleted'));
+    }
 
-        return redirect()->route('admin.auth.user.deleted')->withFlashSuccess(__('alerts.backend.users.deleted'));
+    /**
+     *
+     * @throws \Exception
+     * @return mixed
+     */
+    public function guest()
+    {
+        return view('backend.auth.user.guest');
     }
 }

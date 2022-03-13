@@ -23,8 +23,10 @@ Route::group([
 
         // User CRUD
         Route::get('user', [UserController::class, 'index'])->name('user.index');
+        Route::get('guest', [UserController::class, 'guest'])->name('user.guest');
         Route::get('user/create', [UserController::class, 'create'])->name('user.create');
         Route::post('user', [UserController::class, 'store'])->name('user.store');
+        Route::get('user/delete/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
         // Specific User
         Route::group(['prefix' => 'user/{user}'], function () {
@@ -32,7 +34,7 @@ Route::group([
             Route::get('/', [UserController::class, 'show'])->name('user.show');
             Route::get('edit', [UserController::class, 'edit'])->name('user.edit');
             Route::patch('/', [UserController::class, 'update'])->name('user.update');
-            Route::delete('/', [UserController::class, 'destroy'])->name('user.destroy');
+
 
             // Account
             Route::get('account/confirm/resend', [UserConfirmationController::class, 'sendConfirmationEmail'])->name('user.account.confirm.resend');
