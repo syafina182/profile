@@ -88,3 +88,7 @@ Open laragon Dashboard:
 
  - click Menu->www->choose profile.
 
+### Credential
+
+Username = admin@admin.com
+Password  =  secret
