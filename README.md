@@ -88,7 +88,7 @@ Open laragon Dashboard:
 
  - click Menu->www->choose profile.
 
- - If you can't access the localhost; do access to this url : http://localhost/profile/public/
+ - If you can't access the localhost, do access to this url : http://localhost/profile/public/
 
 ### Credential
 
