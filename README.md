@@ -90,5 +90,5 @@ Open laragon Dashboard:
 
 ### Credential
 
-Username = admin@admin.com
-Password  =  secret
+- Username = admin@admin.com
+- Password  =  secret
