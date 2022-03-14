@@ -88,7 +88,7 @@ class UserController extends Controller
             'password' => 'admin',
         ]);
 
-        return redirect()->back()->withFlashSuccess(__('alerts.backend.users.created'));
+        return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('alerts.backend.users.created'));
     }
 
     /**
@@ -148,7 +148,7 @@ class UserController extends Controller
             'occupation' => $request->occupation,
             'address' => $request->address,
             'gender' => $request->gender,
-            'avatar_type' => 'storage',
+            'avatar_type' => $user->avatar_type,
             'avatar_location' => $pathimg,
         ]);
 

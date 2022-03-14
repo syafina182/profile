@@ -108,19 +108,5 @@
         }).draw();
 	});
 
-    function padam(id) {
-            Swal.fire({
-                title: 'Are you sure want to delete this user?',
-                showCancelButton: true,
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'No',
-                reverseButtons: true,
-                icon: 'warning'
-            }).then((result) => {
-                if (result.value) {
-                    window.location="/profile/public/admin/auth/user/delete/" + id;
-                }
-            });
-        }
 </script>
 @stop

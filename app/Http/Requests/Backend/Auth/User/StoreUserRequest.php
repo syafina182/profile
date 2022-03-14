@@ -31,6 +31,7 @@ class StoreUserRequest extends FormRequest
         return [
             'first_name' => ['required'],
             'email' => ['required', 'email', Rule::unique('users')],
+            'mobile' => ['min:10'],
         ];
     }
 }

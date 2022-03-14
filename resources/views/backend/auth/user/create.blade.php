@@ -22,6 +22,13 @@
 
                 <div class="row mt-4 mb-4">
                     <div class="col">
+                        <div class="form-group row" style="margin-top:25px">
+                            <label class="col-md-2 form-control-label">Profile Photo</label>
+                            <div class="col-md-10">
+                                <input type="file" id="avatar" name="avatar" accept=".gif, .png, .jpg, .jpeg">
+                            </div><!--col-->
+                        </div><!--form-group-->
+
                         <div class="form-group row">
                             <label class="col-md-2 form-control-label">Name</label>
                             <div class="col-md-10">
@@ -79,13 +86,6 @@
                             </div><!--col-->
                         </div><!--form-group-->
 
-                        <div class="form-group row" style="margin-top:25px">
-                            <label class="col-md-2 form-control-label">Profile Photo</label>
-                            <div class="col-md-10">
-                                <input type="file" id="avatar" name="avatar">
-                            </div><!--col-->
-                        </div><!--form-group-->
-
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-body-->
@@ -93,6 +93,7 @@
             <div class="card-footer clearfix">
                 <div class="row">
                     <div class="col text-right">
+                    <button type="button" class="btn btn-sm btn-warning" onclick="history.back()">Back</button>
                         <button type="button" class="btn btn-sm btn-danger" onclick="reset();">Cancel</button>
                         <button type="button" class="btn btn-sm btn-success" onclick="confirm();">Create</button>
                         <button type="submit" class="btn btn-sm btn-success" id="save" name="save" hidden>Save</button>
@@ -101,7 +102,9 @@
             </div><!--card-footer-->
         </div><!--card-->
     {{ html()->form()->close() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+
         function confirm() {
             Swal.fire({
                 title: 'Are you sure you want to create this user?',

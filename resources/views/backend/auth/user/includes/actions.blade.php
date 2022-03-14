@@ -15,9 +15,5 @@
             <i class="fas fa-edit"></i>
         </a>
 
-        <a onclick="padam('{{$user->id}}')" data-toggle="tooltip" data-placement="top" title="@lang('buttons.general.crud.delete')" class="btn btn-danger">
-            <i class="fas fa-trash" style="color: white"></i>
-        </a>
-
     </div>
 @endif

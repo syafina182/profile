@@ -27,7 +27,7 @@
                             <div>
                                 <img src="{{ $user->picture }}" class="user-profile-image" style="width: 160px; height: 190px;"/>
                             </div>
-                            <input type="file" style="margin-top: 30px" id="avatar" name="avatar">
+                            <input type="file" style="margin-top: 30px" id="avatar" name="avatar" accept=".gif, .png, .jpg, .jpeg">
                         </div><!--col-->
                     </div><!--form-group-->
 
@@ -105,6 +105,7 @@
         </div><!--card-footer-->
     </div><!--card-->
 {{ html()->closeModelForm() }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     var gender = document.getElementById("gd").value;
     var occupation = document.getElementById("oc").value;
